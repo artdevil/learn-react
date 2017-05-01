@@ -7,6 +7,7 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
 
+    // deklarasi isi state
     this.state = {
       header: "ini header",
       footer: "ini footer"
@@ -14,24 +15,32 @@ export default class App extends React.Component {
 
   }
 
+  // mengubah header dengan setState
   changeHeader(e){
     this.setState({header: e.target.value});
   }
 
+  // mengubah footer dengan setState
   changeFooter(e){
     this.setState({footer: e.target.value});
   }
 
+  // dataState : props untuk melempar data state ke component konten
+  // changeHeader, changeFooter: props untuk menangkap data perubahan dari component konten
+  // dataHeader: props untuk melempar data state ke component header
+  // dataFooter: props untuk melempar data state ke component footer
+
   render() {
     return (
       <div>
-        <Header header={this.state.header} />
+        <Header dataHeader={this.state.header} />
+
         <Content
-          valueState={this.state}
+          dataState={this.state}
           changeHeader={this.changeHeader.bind(this)}
           changeFooter={this.changeFooter.bind(this)} />
-          
-        <Footer footer={this.state.footer} />
+
+        <Footer dataFooter={this.state.footer} />
       </div>
     )
   }
