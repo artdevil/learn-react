@@ -4,8 +4,14 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        Hello world!!!
+         <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+         </ul>
+
+        {this.props.children}
       </div>
     )
-  }
+ }
 }
